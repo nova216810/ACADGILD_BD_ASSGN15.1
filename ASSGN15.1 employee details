@@ -1,0 +1,13 @@
+https://drive.google.com/file/d/0Bxr27gVaXO5sQWV4UUpOXzNuZDA/view?usp=sharing
+5. Problem Statement
+Calculate the number of employees corresponding to each skill from the table 'employee' which is
+loaded in the Demo
+
+
+use custom;
+
+create table if not exists employee (ename string, skill string, rank int, location string)row format delimited fields terminated by ',' lines terminated by '\n' stored as textfile;   
+
+load data local inpath 'data/emp_details.txt' into table employee;
+
+select skill, count(ename) from employee group by skill ;
